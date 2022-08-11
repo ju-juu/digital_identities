@@ -1,0 +1,17 @@
+@startuml Digital Identities
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(authority, "Authority")
+Person(user, "User")
+
+System_Boundary(c1, "Digital Identities") {
+    Container(web_app, "Web Application", "JavaScript, HTML, CSS", "Allows Authentication and Validation")
+    Container(api, "API", "Python, FastAPI", "Manages validation of authentication requests, handles database")
+    Container(database, "Database", "JSON File Store", "Allows storage of user credentials")
+}
+
+Rel_R(authority, web_app, "Validates with QR code")
+Rel_L(user, web_app, "Generates a QR Code")
+Rel(web_app, api, "Validate Token/User")
+Rel(api, database, "Set/Get Creds")
+@enduml
