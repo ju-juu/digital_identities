@@ -1,0 +1,4 @@
+= Digital Identities
+:toc:
+
+include::documents/design.adoc[]
