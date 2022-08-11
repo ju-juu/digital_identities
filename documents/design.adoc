@@ -22,8 +22,4 @@ Persistent data storage. The user login data is stored in the database and used 
 
 === High Level Diagram
 
-[plantuml]
-....
-include::diagrams/hld.puml[]
-....
-
+image::diagrams/hld.puml/hld.svg[]
