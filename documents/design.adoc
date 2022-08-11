@@ -42,5 +42,6 @@ Rel_L(user, web_app, "Generates a QR Code")
 Rel(web_app, api, "Validate Token/User")
 Rel(api, database, "Set/Get Creds")
 @enduml
+
 ....
 
