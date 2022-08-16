@@ -1,7 +1,5 @@
 == Design
 
-=== Overview
-
 The Digital Identities system will utilize a client-server architecture.
 
 
