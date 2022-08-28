@@ -18,6 +18,6 @@ A web application that interacts with the server API. The client generates the r
 Persistent data storage. The user login data is stored in the database and used for token validation.
 
 
-=== High Level Diagram
+=== Low Level Diagram
 
 image::diagrams/hld.puml/hld.svg[]
