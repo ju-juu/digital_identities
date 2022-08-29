@@ -21,8 +21,3 @@ Persistent data storage. The user login data is stored in the database and used 
 === System Context Diagram
 
 image::diagrams/hld.puml/hld.svg[]
-
-
-=== Sequence Diagram
-
-image::diagrams/seq.svg[]
