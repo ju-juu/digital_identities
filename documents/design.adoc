@@ -25,4 +25,4 @@ image::diagrams/hld.puml/hld.svg[]
 
 === Sequence Diagram
 
-image::diagrams/seq.puml/seq.svg[]
+image::diagrams/seq.svg[]
