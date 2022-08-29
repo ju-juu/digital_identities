@@ -9,6 +9,21 @@
             "fullname": "another example user",
             "email": "another.example@example.com",
             "password": "password"
+        },
+        {
+            "fullname": "test case",
+            "email": "test@test.com",
+            "password": "secret_password"
+        },
+        {
+            "fullname": "John Smith",
+            "email": "john.smith@smith.com",
+            "password": "secret_password"
+        },
+        {
+            "fullname": "test case",
+            "email": "john@test.com",
+            "password": "secret_password"
         }
     ]
 }
