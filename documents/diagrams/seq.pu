@@ -1,4 +1,4 @@
-@startuml
+@startuml Digital Identities
 actor       User        as user
 actor       Authority   as authority
 entity      Portal      as portal
@@ -37,7 +37,3 @@ else Login Failure
     api -> portal: 401 Error Unauthorized
     portal -> authority: Invalid Token Message
 end
-
-
-
-@enduml
