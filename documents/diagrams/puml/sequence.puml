@@ -37,3 +37,5 @@ else Login Failure
     api -> portal: 401 Error Unauthorized
     portal -> authority: Invalid Token Message
 end
+@enduml
+

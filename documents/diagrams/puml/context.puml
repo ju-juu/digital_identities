@@ -1,4 +1,4 @@
-@startuml Digital Identities
+@startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
 Person(authority, "Authority")
@@ -14,3 +14,4 @@ Rel_R(authority, web_app, "Validates with QR code")
 Rel_L(user, web_app, "Generates a QR Code")
 Rel(web_app, api, "Validate Token/User")
 Rel(api, database, "Set/Get Creds")
+@enduml
