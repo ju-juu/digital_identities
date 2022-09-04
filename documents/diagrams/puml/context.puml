@@ -1,17 +1,27 @@
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
+AddElementTag("microService", $shape=EightSidedShape(), $bgColor="CornflowerBlue", $fontColor="white", $legendText="micro service (eight sided)")
+AddElementTag("storage", $shape=RoundedBoxShape(), $bgColor="lightSkyBlue", $fontColor="white")
+
+SHOW_PERSON_OUTLINE()
+
 Person(authority, "Authority")
 Person(user, "User")
 
 System_Boundary(c1, "Digital Identities") {
-    Container(web_app, "Web Application", "JavaScript, HTML, CSS", "Allows Authentication and Validation")
-    Container(api, "API", "Python, FastAPI", "Manages validation of authentication requests, handles database")
-    Container(database, "Database", "JSON File Store", "Allows storage of user credentials")
+    Container(web_app, "Front-End Single Page Web Application", "JavaScript, HTML, CSS", "Allows Authentication and Validation")
+    Container(api, "Back-End API", "Python, FastAPI", "Manages validation of authentication requests, handles database", $tags="microService")
+    Container(nginx, "Load Balancer", "NGINX", "Reverse Proxy for Load Balancing", $tags="microService")
+    ContainerDb(database, "Database", "JSON File Store", "Allows storage of user credentials", $tags="storage")
 }
 
-Rel_R(authority, web_app, "Validates with QR code")
-Rel_L(user, web_app, "Generates a QR Code")
-Rel(web_app, api, "Validate Token/User")
+Rel_R(authority, web_app, "Verifies QR Code")
+Rel_R(authority, user, "Gathers QR Code")
+Rel_R(user, web_app, "Requests QR Code")
+Rel(web_app, nginx, "Validate Token/User", "GET/POST")
+Rel(nginx, api, "Forwards Request", "HTTP")
 Rel(api, database, "Set/Get Creds")
+
+SHOW_LEGEND()
 @enduml
