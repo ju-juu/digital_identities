@@ -1,0 +1,41 @@
+@startuml
+actor       User        as user
+actor       Authority   as authority
+entity      Portal      as portal
+entity      API         as api
+database    Database    as database
+
+'control     Control     as Foo3
+'entity      Entity      as Foo4
+'collections Collections as Foo6
+'queue       Queue       as Foo7
+user -> portal : Login to Portal
+portal -> api : Validate Credentials
+api -> database : Get User Details
+database -> api : Return User Details
+api -> api : Validate User Credentials
+
+alt Login Success
+    api -> portal: Authentication Accepted
+    portal -> user: Return JWT QR Code
+else Login Failure
+    api -> portal: 401 Error Unauthorized
+    portal -> user: Authentication Failure Message (No QR Code)
+end
+
+authority -> user : Scan QR Code
+authority -> portal : Validate QR Code
+portal -> api : Validate Token / Credentials
+api -> database : Get User Details
+database -> api : Return User Details
+api -> api : Validate Token
+
+alt Token Valid
+    api -> portal: Validation Successful
+    portal -> user: Return 200 Success
+else Login Failure
+    api -> portal: 401 Error Unauthorized
+    portal -> authority: Invalid Token Message
+end
+@enduml
+
