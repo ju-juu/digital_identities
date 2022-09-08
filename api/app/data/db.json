@@ -24,6 +24,11 @@
             "fullname": "test case",
             "email": "john@test.com",
             "password": "secret_password"
+        },
+        {
+            "fullname": "tesfft case",
+            "email": "testff@tefst.com",
+            "password": "secret_password"
         }
     ]
 }
