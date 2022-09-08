@@ -1,7 +1,6 @@
 <template>
     <div class="container">
         <BaseLogo/>
-        <h1>Authority Login Page</h1>
         <form action="...." method="post">
             <label for="email"><b>Email Address</b></label>
             <input id="email" type="text" placeholder="Enter Email Address" name="email" required>

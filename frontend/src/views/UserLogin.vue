@@ -1,7 +1,6 @@
 <template>
     <div class="container">
         <BaseLogo/>
-        <h1>User Login Page</h1>
         <form onsubmit="testLog()">
             <label for="email"><b>Email Address</b></label>
             <input id="email" type="text" placeholder="Enter Email Address" name="email" required>
