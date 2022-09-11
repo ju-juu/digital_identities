@@ -9,6 +9,8 @@ const app = createApp(App)
 
 app.component('BaseLogo', BaseLogo)
 
+app.component('QRreader', QRreader)
+
 app.use(router)
 
 app.mount('#app')
