@@ -3,13 +3,21 @@ from fastapi import Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-
+from fastapi.middleware.cors import CORSMiddleware
 from app.auth.auth_bearer import JWTBearer
 from app.auth.auth_handler import sign_jwt
 from app.data.handler import check_user, write_user, get_user
 from app.data.model import UserSchema, UserLoginSchema
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
