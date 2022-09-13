@@ -16,6 +16,7 @@
 </template>
 <script>
 import axios from 'axios'
+import router from "../router";
 
 export default {
     props: ['form'],
@@ -25,6 +26,7 @@ export default {
 
                 // #todo currently we're just logging the response. Need to refactor user/login to return boolean
                 console.log(resp.data);
+                router.push('/user_home')
             });
         }
     }

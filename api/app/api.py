@@ -26,7 +26,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    return templates.TemplateResponse("Usr_Login.html", {"request": request})
+    return 'welcome to QRID'
 
 
 @app.post("/validate_token", dependencies=[Depends(JWTBearer())])
