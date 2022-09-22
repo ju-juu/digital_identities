@@ -24,8 +24,6 @@ export default {
         userLogin() {
             axios.post('/user/login', this.form).then(resp => {
 
-                // #todo currently we're just logging the response. Need to refactor user/login to return boolean
-                console.log(resp.data);
                 router.push('/user_home')
             });
         }

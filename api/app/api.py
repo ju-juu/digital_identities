@@ -30,16 +30,8 @@ async def read_item(request: Request):
 
 
 @app.post("/validate_token", dependencies=[Depends(JWTBearer())])
-async def add_post(user: UserLoginSchema) -> dict:
-    if check_user(user):
-        return {
-            "data": "Token Valid"
-        }
-    else:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect email or password",
-        )
+async def validate_user() -> dict:
+    return {"data": "Token Valid"}
 
 
 @app.post("/user/signup")

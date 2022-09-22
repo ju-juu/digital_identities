@@ -23,18 +23,21 @@ const router = createRouter({
             path: '/user_home',
             name: 'userHome',
             component: () => import('../views/UserHome.vue'),
-            meta: {requiresAuth: true}
+            meta: {requiresAuth: true},
+            props: true
         },
         {
             path: '/user_qr',
             name: 'userQR',
             component: () => import('../views/UserQR.vue'),
-            meta: {requiresAuth: true}
+            meta: {requiresAuth: true},
+            props: true
         },
         {
             path: '/authority_login',
             name: 'authorityLogin',
-            component: () => import('../views/AuthorityLogin.vue')
+            component: () => import('../views/AuthorityLogin.vue'),
+            props: true
         },
         {
             path: '/authority_home',
