@@ -1,12 +1,14 @@
 <template>
     <div class="container">
-        <h1>Please Scan QR Code Below!</h1>
         <center>
-            <QRCodeDisplay v-if="qrData" :qr-data="qrData"></QRCodeDisplay>
-            <label for="psw"><p>Enter Password</p></label>
+            <div v-if="qrData">
+                <h1>Please Scan QR Code Below!</h1>
+                <QRCodeDisplay :qr-data="qrData"></QRCodeDisplay>
+            </div>
+            <label for="psw">Enter password to validate ID</label>
             <input id="psw" type="password" placeholder="Enter Password" name="psw" required v-model="form.password">
             <button @click="refreshQR()" v-if="form.password">Generate QR Code</button>
-            <button @click.prevent="home()">Home Page</button>
+            <button @click="home()">Home Page</button>
         </center>
     </div>
 </template>

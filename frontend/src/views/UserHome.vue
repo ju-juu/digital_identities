@@ -4,14 +4,28 @@
             <div class="left"><img src="src/assets/AB.jpeg" style='width: 30vh; height: 30vh;'></div>
         </center>
         <div class="content">
-            <h1>Drivers Licence</h1>
-            <h2>Full Name: </h2>
-            <h2>Date of Birth: </h2>
-            <h2>Address: </h2>
-            <h2>Licence Class: </h2>
-            <h2>Licence Number: </h2>
+            <div class="row">
+                <div class="col"><h2>Name: </h2></div>
+                <div class="col"><h3>Joe Blogs</h3></div>
+            </div>
+            <div class="row">
+                <div class="col"><h2>D.O.B: </h2></div>
+                <div class="col"><h3>14 February 2001</h3></div>
+            </div>
+            <div class="row">
+                <div class="col"><h2>Address: </h2></div>
+                <div class="col"><h3>123 Fake St</h3></div>
+            </div>
+            <div class="row">
+                <div class="col"><h2>Number: </h2></div>
+                <div class="col"><h3>081231234</h3></div>
+            </div>
+            <div class="row">
+                <div class="col"><h2>Class: </h2></div>
+                <div class="col"><h3>C, RE</h3></div>
+            </div>
         </div>
-        <button class="button button2" @click.prevent="verifyQR()" style="width: 100%" align="center">Verify
+        <button class="button button2" @click="verifyQR()" style="width: 100%" align="center">Verify
         </button>
     </div>
 </template>
@@ -19,16 +33,11 @@
 import router from "../router";
 
 export default {
-    props: ['email'],
     name: 'userHome',
     methods: {
         verifyQR() {
             router.push('/user_qr')
         }
     },
-    created() {
-        console.log('created')
-        console.log(this.email)
-    }
 }
 </script>
