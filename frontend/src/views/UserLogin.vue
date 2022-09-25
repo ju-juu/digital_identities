@@ -35,7 +35,7 @@ export default {
     methods: {
         userLogin() {
             axios.post('/user/login', this.form).then(() => {
-                router.push({name: 'userHome', params: { email: this.form.email}})
+                router.push('user_home')
             });
         }
     }
