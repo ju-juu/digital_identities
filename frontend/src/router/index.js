@@ -45,12 +45,6 @@ const router = createRouter({
             component: () => import('../views/AuthorityHome.vue'),
             meta: {requiresAuth: true}
         },
-        {
-            path: '/authority_scanner',
-            name: 'authorityScanner',
-            component: () => import('../views/AuthorityScanner.vue'),
-            meta: {requiresAuth: true}
-        },
     ]
 })
 

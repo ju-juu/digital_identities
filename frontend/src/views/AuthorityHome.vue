@@ -6,13 +6,16 @@
                 <QRReader style="height: 400px; width: 400px"></QRReader>
             </center>
         </div>
+        <div>
+            <button>Logout</button>
+            <button>Help</button>
+        </div>
     </div>
 </template>
 <script>
-import AuthorityScanner from "./AuthorityScanner.vue";
 import QRReader from "../components/QRReader.vue";
 
 export default {
-    components: {QRReader, AuthorityScanner}
+    components: {QRReader}
 }
 </script>
