@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <center>
-            <div class="left"><img src="src/assets/AB.jpeg" style='width: 30vh; height: 30vh;'></div>
+            <div class="left"><img src="/src/assets/AB.jpeg" style='width: 30vh; height: 30vh;'></div>
         </center>
         <div class="content">
             <div class="row">
@@ -25,8 +25,8 @@
                 <div class="col"><h3>C, RE</h3></div>
             </div>
         </div>
-        <button class="button button2" @click="verifyQR()" style="width: 100%" align="center">Verify
-        </button>
+        <button class="button button2" @click="verifyQR()" style="width: 100%" align="center">Verify</button>
+        <button class="button button2" @click="logout()" style="width: 100%" align="center">Logout</button>
     </div>
 </template>
 <script>
@@ -37,6 +37,9 @@ export default {
     methods: {
         verifyQR() {
             router.push('/user_qr')
+        },
+        logout() {
+            router.push('/')
         }
     },
 }

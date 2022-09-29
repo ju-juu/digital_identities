@@ -45,6 +45,12 @@ const router = createRouter({
             component: () => import('../views/AuthorityHome.vue'),
             meta: {requiresAuth: true}
         },
+        {
+            path: '/authority_help',
+            name: 'authorityHelp',
+            component: () => import('../views/AuthorityHelp.vue'),
+            meta: {requiresAuth: true}
+        },
     ]
 })
 
