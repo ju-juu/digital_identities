@@ -1,12 +1,23 @@
 <template>
-    <div class="hello">
-        <StreamBarcodeReader
-            @decode="(a, b, c) => onDecode(a, b, c)"
-            @loaded="() => onLoaded()"
-        ></StreamBarcodeReader>
-        <div v-if="qrCode">
-            <button @click="validateQRCode()" v-if="qrCode">Validate</button>
-        </div>
+    <div v-if="fail">
+        <center>
+            <img src="src/assets/Redcross.png" alt="Success Tick" style='width: 30vh; height: 30vh;'>
+        </center>
+    </div>
+    <div v-else-if="success">
+        <center>
+            <img src="src/assets/Greentick.png" alt="Success Tick" style='width: 30vh; height: 30vh;'>
+        </center>
+    </div>
+    <div v-else>
+        <StreamBarcodeReader style='width: 30vh; height: 30vh;'
+                         @decode="(a, b, c) => onDecode(a, b, c)"
+                         @loaded="() => onLoaded()"
+    ></StreamBarcodeReader>
+    </div>
+
+    <div v-if="qrCode">
+        <button @click="validateQRCode()" v-if="qrCode">Validate</button>
     </div>
 </template>
 
@@ -24,6 +35,8 @@ export default {
         return {
             qrCode: "",
             id: null,
+            success: false,
+            fail: false
         };
     },
 
@@ -47,7 +60,15 @@ export default {
                     headers: {
                         'Authorization': 'Bearer ' + this.qrCode
                     },
-                }).then(response => console.log(response)) // #TODO if response code == 200 display tick, else cross
+                }).then(response => {
+                if (response.status === 200) {
+                    console.log("Token is valid")
+                    this.success = true
+                } else {
+                    this.success = false
+                    this.fail = true
+                }
+            }) // #TODO if response code == 200 display tick, else cross
         },
     },
 };
