@@ -3,6 +3,7 @@
         <center>
             <div class="left"><img src="/src/assets/AB.jpeg" style='width: 30vh; height: 30vh;'></div>
         </center>
+        <form>
         <div class="content">
             <div class="row">
                 <div class="col"><h2>Name: </h2></div>
@@ -24,8 +25,9 @@
                 <div class="col"><h2>Class: </h2></div>
                 <div class="col"><h3>C, RE</h3></div>
             </div>
-        </div>
+        </div></form>
         <button class="button button2" @click="verifyQR()" style="width: 100%" align="center">Verify</button>
+        <button class="button button2"  style="width: 100%" align="center">Add a New ID</button>
         <button class="button button2" @click="logout()" style="width: 100%" align="center">Logout</button>
     </div>
 </template>

@@ -2,10 +2,10 @@ import time
 from typing import Dict
 import os
 import jwt
-from decouple import config
+# from decouple import config
 
-JWT_SECRET = config("secret")
-JWT_ALGORITHM = config("algorithm")
+JWT_SECRET = "COOLASECRETVALUE"
+JWT_ALGORITHM = "HS256"
 
 
 def token_response(token: str):
