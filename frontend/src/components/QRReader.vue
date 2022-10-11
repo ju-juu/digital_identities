@@ -55,6 +55,7 @@ export default {
             console.log("load");
         },
         validateQRCode() {
+            console.log("Validating token: " + this.qrCode)
             axios
                 .post("/validate_token", {}, {
                     headers: {
