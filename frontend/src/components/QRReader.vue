@@ -1,7 +1,7 @@
 <template>
     <div v-if="fail">
         <center>
-            <img src="src/assets/Redcross.png" alt="Success Tick" style='width: 30vh; height: 30vh;'>
+            <img src="src/assets/Redcross.png" alt="Fail Cross" style='width: 30vh; height: 30vh;'>
         </center>
     </div>
     <div v-else-if="success">
@@ -11,9 +11,9 @@
     </div>
     <div v-else>
         <StreamBarcodeReader style='width: 30vh; height: 30vh;'
-                         @decode="(a, b, c) => onDecode(a, b, c)"
-                         @loaded="() => onLoaded()"
-    ></StreamBarcodeReader>
+                             @decode="(a, b, c) => onDecode(a, b, c)"
+                             @loaded="() => onLoaded()"
+        ></StreamBarcodeReader>
     </div>
 
     <div v-if="qrCode">
@@ -54,22 +54,26 @@ export default {
         onLoaded() {
             console.log("load");
         },
-        validateQRCode() {
+        async validateQRCode() {
             console.log("Validating token: " + this.qrCode)
-            axios
-                .post("/validate_token", {}, {
-                    headers: {
-                        'Authorization': 'Bearer ' + this.qrCode
-                    },
-                }).then(response => {
-                if (response.status === 200) {
-                    console.log("Token is valid")
-                    this.success = true
-                } else {
-                    this.success = false
-                    this.fail = true
-                }
-            }) // #TODO if response code == 200 display tick, else cross
+            try {
+                const response = await axios
+                    .post("/validate_token", {}, {
+                        headers: {
+                            'Authorization': 'Bearer ' + this.qrCode
+                        },
+                    }).then(response => {
+                        if (response.status === 200) {
+                            console.log("Valid Token")
+                            this.success = true
+                        }
+                    })
+            } catch (err) {
+                console.log("Invalid Token")
+                console.log(err)
+                this.fail = true
+                this.success = false
+            }
         },
     },
 };
